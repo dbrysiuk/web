@@ -9,6 +9,10 @@
 namespace frontend\models;
 
 use Yii;
+use yii\base\NotSupportedException;
+use yii\bahaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "users".
