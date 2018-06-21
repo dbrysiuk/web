@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace student\models;
 
 /**
  * This is the ActiveQuery class for [[Country]].

@@ -11,17 +11,17 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'app-student',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\controllers',
+    'controllerNamespace' => 'student\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'csrfParam' => '_csrf-student',
         ],
         'user' => [
 	    'class'=>'yii\web\User',
-            'identityClass' => 'frontend\models\Student',
+            'identityClass' => 'student\models\Student',
             'enableAutoLogin' => false,
         ],
 

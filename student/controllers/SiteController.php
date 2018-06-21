@@ -1,5 +1,5 @@
 <?php
-namespace frontend\controllers;
+namespace student\controllers;
 
 use Yii;
 use yii\base\InvalidParamException;
@@ -7,11 +7,11 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+use student\models\LoginForm;
+use student\models\PasswordResetRequestForm;
+use student\models\ResetPasswordForm;
+use student\models\SignupForm;
+use student\models\ContactForm;
 
 /**
  * Site controller
