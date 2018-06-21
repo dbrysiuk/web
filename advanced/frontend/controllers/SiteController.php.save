@@ -13,7 +13,6 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use frontend\models\Session;
 
 /**
  * Site controller
@@ -198,10 +197,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-	
-    public function actionSessionTest () {
-	return $this->render('sessionTest');
-    } 
 
     /**
      * Resets password.
@@ -228,5 +223,4 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
 }

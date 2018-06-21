@@ -70,11 +70,11 @@ class LoginForm extends Model
      */
     protected function getUser()
     {
-        if (!$this->_user) {
-		$this->_user = Users::findByUsername($this->username);
-	}
-	if(!$this->_user){
-		$this->_user = Teacher::findByUsername($this->username);
+        if ($this->_user === null) {
+            
+		if($test=='0'){
+			$this->_user = Users::findByUsername($this->userna        
+
 	}
 
         return $this->_user;

@@ -25,10 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 				
-				<?= $form->field($model,'usertype'); ?>
-				<?= $form->dropDownList($model, 'usertype', array('U' => 'User', 'A' => 'Teacher'),
-					array('empty' => '-- Select User Type --', 'class'=>'form-control')); ?>
-				<?= $form->error($model,'usertype'); ?>
+		<?= $form->field($model, 'test') ->checkbox()?>
 
                 <div style="color:#999;margin:1em 0">
                     If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.

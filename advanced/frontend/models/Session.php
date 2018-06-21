@@ -41,7 +41,7 @@ class Session extends \yii\db\ActiveRecord
             [['token'], 'string', 'max' => 10],
             [['name'], 'string', 'max' => 30],
             [['token'], 'unique'],
-            [['admin_id'], 'exist', 'skipOnError' => true, 'targetClass' => Administrator::className(), 'targetAttribute' => ['admin_id' => 'id']],
+            [['admin_id'], 'exist', 'skipOnError' => true, 'targetClass' => Teacher::className(), 'targetAttribute' => ['admin_id' => 'id']],
         ];
     }
 
