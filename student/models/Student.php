@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Airwalk
- * Date: 19.06.2018
- * Time: 16:41
- */
 
 namespace student\models;
 
@@ -15,24 +9,32 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * This is the model class for table "teacher".
+ * This is the model class for table "users".
  *
  * @property int $id
- * @property string $full_name
  * @property string $username
- * @property string $email
  * @property string $password
+ * @property string $level
+ * @property int $knowledgePoints
+ * @property int $collaborationPount
+ * @property int $equations
+ * @property int $inequalities
+ * @property int $functions
+ * @property int $linearEquations
+ * @property int $polynomial
+ * @property int $quadraticEquations
+ * @property string $session_id
  *
- * @property Session[] $sessions
+ * @property Session $session
  */
-class Student extends \yii\db\ActiveRecord implements IdentityInterface
+class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'teacher';
+        return 'users';
     }
 
     /**
@@ -41,14 +43,14 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['full_name', 'username', 'email', 'password'], 'required'],
-            [['full_name'], 'string', 'max' => 40],
+            [['username', 'password', 'level'], 'required'],
+            [['knowledgePoints', 'collaborationPount', 'equations', 'inequalities', 'functions', 'linearEquations', 'polynomial', 'quadraticEquations'], 'integer'],
             [['username'], 'string', 'max' => 20],
-            [['email'], 'string', 'max' => 254],
             [['password'], 'string', 'max' => 60],
+            [['level', 'session_id'], 'string', 'max' => 10],
             [['username'], 'unique'],
-            [['email'], 'unique'],
             [['password'], 'unique'],
+            [['session_id'], 'exist', 'skipOnError' => true, 'targetClass' => Session::className(), 'targetAttribute' => ['session_id' => 'token']],
         ];
     }
 
@@ -59,19 +61,27 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'full_name' => Yii::t('app', 'Full Name'),
             'username' => Yii::t('app', 'Username'),
-            'email' => Yii::t('app', 'Email'),
             'password' => Yii::t('app', 'Password'),
+            'level' => Yii::t('app', 'Level'),
+            'knowledgePoints' => Yii::t('app', 'Knowledge Points'),
+            'collaborationPount' => Yii::t('app', 'Collaboration Pount'),
+            'equations' => Yii::t('app', 'Equations'),
+            'inequalities' => Yii::t('app', 'Inequalities'),
+            'functions' => Yii::t('app', 'Functions'),
+            'linearEquations' => Yii::t('app', 'Linear Equations'),
+            'polynomial' => Yii::t('app', 'Polynomial'),
+            'quadraticEquations' => Yii::t('app', 'Quadratic Equations'),
+            'session_id' => Yii::t('app', 'Session ID'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSessions()
+    public function getSession()
     {
-        return $this->hasMany(Session::className(), ['admin_id' => 'id']);
+        return $this->hasOne(Session::className(), ['token' => 'session_id']);
     }
 
     public function getAuthKey (){
