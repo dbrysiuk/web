@@ -3,13 +3,14 @@
 namespace student\models;
 
 use Yii;
+
 use yii\base\NotSupportedException;
 use yii\bahaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * This is the model class for table "users".
+ * This is the model class for table "student".
  *
  * @property int $id
  * @property string $username
@@ -27,14 +28,14 @@ use yii\web\IdentityInterface;
  *
  * @property Session $session
  */
-class Users extends \yii\db\ActiveRecord implements IdentityInterface
+class Student extends ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'users';
+        return 'student';
     }
 
     /**
@@ -84,32 +85,31 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
         return $this->hasOne(Session::className(), ['token' => 'session_id']);
     }
 
-    public function getAuthKey (){
-        throw new \yii\base\NotsupportedException();
+    public function getAuthKey () {
+	throw new NotsupportedException();
     }
 
     public function getId () {
-        return $this->id;
+	return $this->id;
     }
 
-    public function validateAuthKey ($authKey){
-        throw new \yii\base\NotsupportedException();
+    public function validateAuthKey ($authKey) {
+	throw new NotsupportedException();
     }
 
-    public static function findIdentity ($id){
-        return self::findOne($id);
+    public static function findIdentity ($id) {
+	return self::findOne($id);
     }
 
-    public static function findIdentityByAccessToken ($token, $type = null){
-        throw new \yii\base\NotsupportedException();
+    public static function findIdentityByAccessToken ($token, $type = null) {
+	throw new NotsupportedException();
     }
 
-    public static function findByUsername ($username){
-        return self::findOne(['username'=>$username]);
+    public static function findByUsername ($username) {
+	return self::findOne(['username'=>$username]);
     }
 
-    public function validatePassword ($password){
-        return $this->password === $password;
+    public function validatePassword ($password) {
+	return $this->password === $password;
     }
-
 }
