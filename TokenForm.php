@@ -26,6 +26,6 @@ class SignupForm extends Model
 
     public function token()
     {
-        $session = Token::findByToken($this->token);
+        return Token::findByToken($this->token);
     }
 }
