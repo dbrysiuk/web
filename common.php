@@ -14,5 +14,17 @@ return [
     'Collaborative Learning Game'=>'Совместная обучающая игра',
     'Please fill out the following fields to login:'=>'Пожалуйста заполните следующие поля для входа',
     'Remember Me'=>'Запомнить',
+    'Create Teacher' => 'Создать Учителя',
+    'Email'=>'Электронная почта',
+    'Save'=>'Сохранить',
+    'ID'=>'ИД',
+    'Search'=>'Искать',
+    'Reset'=>'Обратно',
+    'Update Teacher: ' =>'Изменить данные Учителя',
+    'Update' =>'Изменить',
+    'Delete' => 'Удалить',
+    'Are you sure you want to delete this item?'=>'Вы точно уверены что хотите удалить данную',
+    'Admin'=>'Администратор',
+
 
 ];
